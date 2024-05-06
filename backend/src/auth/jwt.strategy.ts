@@ -12,7 +12,8 @@ export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {  // 'jwt' i
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       ignoreExpiration: false,
-      secretOrKey: "abc778888" // This should be in env file which will be conmmented in git or ssm params in aws or env variables in heruku
+      secretOrKey: process.env.JWT_KEY
+      //"abc778888" // This should be in env file which will be conmmented in git or ssm params in aws or env variables in heruku
     });
   }
 
